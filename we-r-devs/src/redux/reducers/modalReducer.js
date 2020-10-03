@@ -1,6 +1,6 @@
 import { OPEN_MODAL, CLOSE_MODAL } from "../constants/modal.js";
 const initialState = {
-  isOpened: true,
+  isOpened: false,
 };
 
 export default function modalReducer(state = initialState, action) {

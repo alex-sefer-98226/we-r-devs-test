@@ -2,3 +2,8 @@
   display: flex;
   position: relative;
 }
+@media (max-width: 569px) {
+  .wrapper {
+    flex-flow: column wrap;
+  }
+}

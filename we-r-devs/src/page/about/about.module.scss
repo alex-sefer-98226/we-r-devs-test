@@ -20,3 +20,13 @@
   font-size: 20px;
   letter-spacing: 0.4px;
 }
+@media (max-width: 1025px) {
+  .aboutWrapper {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+  }
+  .aboutHeading {
+    margin-bottom: 20px;
+  }
+}

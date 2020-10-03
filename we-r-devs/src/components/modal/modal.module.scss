@@ -63,3 +63,21 @@
     cursor: pointer;
   }
 }
+@media (max-width: 569px) {
+  .wrapper {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+  }
+  .modal {
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-flow: column wrap;
+  }
+  .inputWrapper,
+  .inputText {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}

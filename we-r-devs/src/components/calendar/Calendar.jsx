@@ -12,7 +12,6 @@ export default class Calendar extends React.Component {
     years: [2019, 2020, 2021],
     monthNames,
     weekDayNames: ["S", "M", "T", "W", "T", "F", "S"],
-    // onChange: Function.prototype
   };
 
   state = {
@@ -44,65 +43,38 @@ export default class Calendar extends React.Component {
 
     this.setState({ date });
   };
-
-  handleSelectChange = () => {
-    const year = this.yearSelect.value;
-    const month = this.monthSelect.value;
-
-    const date = new Date(year, month);
-
-    this.setState({ date });
-  };
-
   handleDayClick = (date) => {
     this.setState({ selectedDate: date });
-    // this.props.onChange(date);
-    this.props.setDate(date);
+    this.props.setDate({
+      month: date.getMonth(),
+      day: date.getDate(),
+      dayOfWeek: date.getDay(),
+    });
     this.props.openModal();
   };
 
   render() {
-    const { years, monthNames, weekDayNames } = this.props;
+    const { weekDayNames } = this.props;
     const { currentDate, selectedDate } = this.state;
-
     const monthData = calendar.getMonthData(this.year, this.month);
-
+    console.log(monthData);
     return (
       <div className={styles.wrapper}>
-        <div className={styles.calendar}>
+        <div>
           <header className={styles.header}>
             <button
               onClick={this.handlePrevMonthButtonClick}
-              className={classnames(styles.button, styles.left)}
+              className={styles.button}
             >
               <i className={classnames("fas fa-angle-left", styles.button)}></i>
             </button>
 
-            {/*<select*/}
-            {/*    ref={element => this.monthSelect = element}*/}
-            {/*    value={this.month}*/}
-            {/*    onChange={this.handleSelectChange}*/}
-            {/*>*/}
-            {/*    {monthNames.map((name, index) =>*/}
-            {/*        <option key={name} value={index}>{name}</option>*/}
-            {/*    )}*/}
-            {/*</select>*/}
-
-            {/*<select*/}
-            {/*    ref={element => this.yearSelect = element}*/}
-            {/*    value={this.year}*/}
-            {/*    onChange={this.handleSelectChange}*/}
-            {/*>*/}
-            {/*    {years.map(year =>*/}
-            {/*        <option key={year} value={year}>{year}</option>*/}
-            {/*    )}*/}
-            {/*</select>*/}
             <span className={styles.currentMonth}>
               {this.props.monthNames[this.month]} {this.year}
             </span>
             <button
               onClick={this.handleNextMonthButtonClick}
-              className={classnames(styles.button, styles.right)}
+              className={styles.button}
             >
               <i
                 className={classnames("fas fa-angle-right", styles.button)}
@@ -111,13 +83,13 @@ export default class Calendar extends React.Component {
           </header>
 
           <table className={styles.table}>
-            <tbody className={styles.tbody}>
+            <tbody>
               {monthData.map((week, index) => (
-                <tr key={week + index} className={styles.week}>
-                  {week.map((date, index) =>
+                <tr key={week + index}>
+                  {week.map((date, weekIndex) =>
                     date ? (
                       <td
-                        key={index}
+                        key={weekIndex}
                         className={classnames(
                           styles.day,
                           calendar.areEqual(date, currentDate)
@@ -135,9 +107,9 @@ export default class Calendar extends React.Component {
                       </td>
                     ) : (
                       <td
-                        key={index}
+                        key={weekIndex}
                         onClick={
-                          index < 7
+                          index < 3
                             ? this.handlePrevMonthButtonClick
                             : this.handleNextMonthButtonClick
                         }

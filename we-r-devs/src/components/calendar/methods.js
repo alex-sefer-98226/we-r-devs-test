@@ -2,8 +2,6 @@ const DAYS_IN_WEEK = 7;
 
 const DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-// const WEEK_DAYS_FROM_MONDAY = [6, 0, 1, 2, 3, 4, 5];
-
 const Month = {
   January: 0,
   February: 1,
@@ -45,18 +43,11 @@ export function getDaysInMonth(date) {
   }
 }
 
-export function getDayOfWeek(date) {
-  const dayOfWeek = date.getDay();
-
-  // return WEEK_DAYS_FROM_MONDAY[dayOfWeek];
-  return dayOfWeek;
-}
-
 export function getMonthData(year, month) {
   const result = [];
   const date = new Date(year, month);
   const daysInMonth = getDaysInMonth(date);
-  const monthStartsOn = getDayOfWeek(date);
+  const monthStartsOn = date.getDay();
   let day = 1;
 
   for (let i = 0; i < (daysInMonth + monthStartsOn) / DAYS_IN_WEEK; i++) {

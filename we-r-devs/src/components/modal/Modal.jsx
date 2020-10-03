@@ -18,6 +18,7 @@ export const Modal = ({ isOpen, closeUp, selectedDate }) => {
   if (!isOpen) {
     return null;
   }
+  console.log("Modal props", date);
   return (
     <div className={styles.wrapper}>
       <div className={styles.modal}>
@@ -27,7 +28,7 @@ export const Modal = ({ isOpen, closeUp, selectedDate }) => {
           </label>
           <input
             type={"text"}
-            value={monthNames[date.getMonth()]}
+            value={monthNames[date.month]}
             disabled={true}
             className={styles.inputText}
           />
@@ -39,9 +40,7 @@ export const Modal = ({ isOpen, closeUp, selectedDate }) => {
           <input
             type={"text"}
             value={
-              textDateFromNumber(date.getDate()) +
-              " " +
-              daysNames[date.getDay()]
+              textDateFromNumber(date.day) + " " + daysNames[date.dayOfWeek]
             }
             disabled={true}
             className={styles.inputText}
