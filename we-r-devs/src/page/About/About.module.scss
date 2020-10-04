@@ -30,3 +30,20 @@
     margin-bottom: 20px;
   }
 }
+@media (max-width: 1367px) {
+  .aboutWrapper {
+    width: 100%;
+    height: auto;
+    flex-flow: column wrap;
+    padding: 20px;
+  }
+  .aboutContentWrapper {
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    //padding: 15px;
+  }
+  .aboutHeading {
+    margin-bottom: 20px;
+  }
+}

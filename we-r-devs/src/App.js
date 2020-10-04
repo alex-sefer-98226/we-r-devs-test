@@ -1,24 +1,24 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { Header } from "./components/header/Header";
-import { Home } from "./page/home/Home";
-import { About } from "./page/about/About";
+import { HashRouter, Route, Switch } from "react-router-dom";
+import { Header } from "./components/Header/Header";
+import { Home } from "./page/Home/Home";
+import { About } from "./page/About/About";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import Modal from "./containers/modal";
 
 function App() {
   return (
-    <>
-      <Provider store={store}>
-        <BrowserRouter>
-          <Header />
-          <Switch>
-            <Route exact={true} path={"/"} component={Home} />
-            <Route exact={true} path={"/about"} component={About} />
-          </Switch>
-        </BrowserRouter>
-      </Provider>
-    </>
+    <Provider store={store}>
+      <HashRouter basename={"/"}>
+        <Header />
+        <Switch>
+          <Route exact path={"/"} component={Home} />
+          <Route exact path={"/about"} component={About} />
+        </Switch>
+        <Modal />
+      </HashRouter>
+    </Provider>
   );
 }
 

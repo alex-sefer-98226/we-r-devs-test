@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
-import { Modal } from "../modal/Modal";
-import { closeModal } from "../../redux/actions/index";
-import { isOpen } from "../../redux/selectors/modal.js";
-import { getDate } from "../../redux/selectors/date";
+import { Modal } from "../components/Modal/Modal";
+import { closeModal } from "../redux/actions";
+import { isOpen } from "../redux/selectors/modal.js";
+import { getDate } from "../redux/selectors/date";
 
 const mapStateToProps = (state) => ({
   isOpen: isOpen(state),

@@ -1,14 +1,26 @@
+@import "./src/assets/styles/styles";
 .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
+  top: 150px;
   width: 100%;
   height: calc(100vh - 150px);
-  background-color: rgba(39, 40, 41, 0.85);
-  z-index: 3;
-}
 
+  background-color: rgba(39, 40, 41, 0.85);
+  z-index: 4;
+  &::before {
+    display: block;
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 150px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
 .modal {
   position: relative;
 
@@ -37,7 +49,7 @@
 .inputText {
   height: 54px;
   width: 220px;
-  border: 2px solid #fdd000;
+  border: 2px solid $yellowColor;
   box-shadow: 0 0 25px #0000000d;
   padding-left: 20px;
   letter-spacing: 0.66px;
@@ -54,13 +66,20 @@
   width: 28px;
   height: 28px;
   border: none;
-  background-color: #fdd000;
+  background-color: $yellowColor;
   background-image: url("../../assets/images/xicon.png");
   background-size: contain;
   outline: none;
 
   &:hover {
     cursor: pointer;
+  }
+}
+@media (max-width: 769px) {
+  .wrapper {
+    height: 100vh;
+    position: fixed;
+    top: 0;
   }
 }
 @media (max-width: 569px) {

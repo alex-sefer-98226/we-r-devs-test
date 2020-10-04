@@ -1,3 +1,4 @@
+@import "./src/assets/styles/styles";
 .wrapper {
   width: calc(100vw / 3);
   height: calc(100vh - 150px);
@@ -18,7 +19,7 @@
 .currentMonth {
   display: inline-block;
   padding-top: 5px;
-  color: #dfdfdf;
+  color: $lightColor;
   text-transform: uppercase;
   font-size: 19px;
 
@@ -30,7 +31,7 @@
   box-shadow: none;
   outline: none;
   border: none;
-  color: #dfdfdf;
+  color: $lightColor;
   opacity: 0.67;
   font-size: 32px;
   &:hover {
@@ -65,10 +66,10 @@
   text-align: center;
   border: 2px solid transparent;
   padding: 15px 18px 16px 16px;
-  color: #dfdfdf;
+  color: $lightColor;
 
   &:hover {
-    border: 2px solid #fdd000;
+    border: 2px solid $yellowColor;
     cursor: pointer;
   }
   &.today {
@@ -90,24 +91,31 @@
     width: 7px;
     height: 7px;
     border-radius: 5px;
-    background-color: #fdd000;
+    background-color: $yellowColor;
   }
 }
 
 .today {
-  background-color: #fdd000;
+  background-color: $yellowColor;
   box-shadow: 0 0 25px #0000000d;
   color: #3d3d3d;
-  border: 2px solid #fdd000;
+  border: 2px solid $yellowColor;
 
   &:hover {
     border: 2px solid #272829;
   }
 }
+@media (max-width: 769px) {
+  .wrapper {
+    width: 100%;
+    height: auto;
+    padding: 50px;
+  }
+}
 @media (max-width: 569px) {
   .wrapper {
     width: 100%;
-    padding-left: 0;
+    padding-left: 25px;
   }
   .day {
     padding: 10px 11px 11px 11px;

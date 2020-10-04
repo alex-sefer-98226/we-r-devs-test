@@ -1,3 +1,1 @@
-export const getDate = (state) => {
-  return state.domain.selectedDate;
-};
+export const getDate = (state) => state.domain.selectedDate;

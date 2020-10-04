@@ -1,5 +1,6 @@
 import React from "react";
-import styles from "./modal.module.scss";
+import ReactDOM from "react-dom";
+import styles from "./Modal.module.scss";
 import { daysNames, monthNames } from "../../utils/dates";
 const textDateFromNumber = (day) => {
   if (day === 1 || day === 21 || day === 31) {
@@ -18,8 +19,7 @@ export const Modal = ({ isOpen, closeUp, selectedDate }) => {
   if (!isOpen) {
     return null;
   }
-  console.log("Modal props", date);
-  return (
+  return ReactDOM.createPortal(
     <div className={styles.wrapper}>
       <div className={styles.modal}>
         <div className={styles.inputWrapper}>
@@ -50,6 +50,7 @@ export const Modal = ({ isOpen, closeUp, selectedDate }) => {
           {}
         </button>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };

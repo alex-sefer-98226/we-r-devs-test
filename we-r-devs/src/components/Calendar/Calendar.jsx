@@ -3,7 +3,7 @@ import classnames from "classnames";
 
 import * as calendar from "./methods";
 
-import styles from "./calendar.module.scss";
+import styles from "./Calendar.module.scss";
 import { monthNames } from "../../utils/dates";
 
 export default class Calendar extends React.Component {
@@ -57,7 +57,6 @@ export default class Calendar extends React.Component {
     const { weekDayNames } = this.props;
     const { currentDate, selectedDate } = this.state;
     const monthData = calendar.getMonthData(this.year, this.month);
-    console.log(monthData);
     return (
       <div className={styles.wrapper}>
         <div>

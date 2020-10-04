@@ -1,3 +1,4 @@
+@import "./src/assets/styles/styles";
 .titleWrapper {
   display: flex;
   flex-flow: column wrap;
@@ -17,7 +18,7 @@
   text-align: right;
   font-weight: 800;
   letter-spacing: 3.5px;
-  color: #fdd000;
+  color: $yellowColor;
   text-transform: uppercase;
   font-size: 50px;
 }
@@ -32,11 +33,43 @@
   font-weight: 300;
   font-size: 30px;
   letter-spacing: 0.6px;
-  color: #dfdfdf;
+  color: $lightColor;
   opacity: 1;
   margin-bottom: 235px;
   margin-top: 20px;
 }
+@media (max-width: 1367px) {
+  .titleWrapper {
+    padding-bottom: 30px;
+  }
+  .description {
+    margin-bottom: 20px;
+  }
+  .titleWrapper {
+    //background: none;
+    //background-image: url("../../assets/images/titleImage.jpg");
+    background-size: cover;
+  }
+}
+@media (max-width: 768px) {
+  .titleWrapper {
+    width: 100%;
+    height: auto;
+    padding-right: 0;
+    padding-top: 40px;
+  }
+  .heading,
+  .description {
+    width: 60%;
+    //text-align: center;
+    padding: 0 10px;
+  }
+  .description {
+    width: 60%;
+    //display: flex;
+  }
+}
+
 @media (max-width: 569px) {
   .titleWrapper {
     width: 100%;
